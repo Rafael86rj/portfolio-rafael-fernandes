@@ -1,0 +1,873 @@
+/* =========================================================
+   1. VARIÁVEIS DO PROJETO — TEMA ESCURO (PADRÃO)
+   ========================================================= */
+
+:root {
+    /* Fundos */
+    --color-bg: #020b17;
+    --color-bg-soft: #071322;
+
+    /* Superfícies */
+    --color-card: rgba(10, 23, 40, 0.78);
+    --color-card-hover: #0d1c30;
+    --color-contact: rgba(10, 23, 40, 0.58);
+
+    /* Cabeçalho */
+    --color-header-bg: rgba(2, 11, 23, 0.94);
+    --color-header-text: #f3f7fb;
+
+    /* Cor principal */
+    --color-primary: #1683ff;
+    --color-primary-hover: #58a8ff;
+    --color-primary-soft: rgba(22, 131, 255, 0.12);
+
+    /* Textos */
+    --color-text: #f3f7fb;
+    --color-text-secondary: #dbe7f2;
+    --color-text-muted: #a9b7c8;
+
+    /* Bordas */
+    --color-border: rgba(255, 255, 255, 0.10);
+    --color-border-primary: rgba(22, 131, 255, 0.45);
+
+    /* Tags */
+    --color-tag-bg: rgba(22, 131, 255, 0.08);
+    --color-tag-border: rgba(22, 131, 255, 0.15);
+    --color-tag-text: #d9e7f4;
+
+    /* Botões outline */
+    --color-outline-border: rgba(255, 255, 255, 0.28);
+    --color-outline-hover-bg: rgba(255, 255, 255, 0.06);
+
+    /* Sombras */
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.22);
+    --shadow-card-soft: 0 8px 24px rgba(0, 0, 0, 0.14);
+
+    /* Foto */
+    --profile-glow-1: rgba(22, 131, 255, 0.04);
+    --profile-glow-2: rgba(22, 131, 255, 0.025);
+
+    /* Geometria */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+
+    --transition: 180ms ease;
+}
+
+
+/* =========================================================
+   2. TEMA CLARO
+   ========================================================= */
+
+body.light-theme {
+    /* Fundos */
+    --color-bg: #f5f8fc;
+    --color-bg-soft: #ffffff;
+
+    /* Superfícies */
+    --color-card: #ffffff;
+    --color-card-hover: #f8fbff;
+    --color-contact: #ffffff;
+
+    /* Cabeçalho */
+    --color-header-bg: rgba(255, 255, 255, 0.96);
+    --color-header-text: #172235;
+
+    /* Cor principal */
+    --color-primary: #0878e8;
+    --color-primary-hover: #005fc4;
+    --color-primary-soft: rgba(8, 120, 232, 0.08);
+
+    /* Textos */
+    --color-text: #172235;
+    --color-text-secondary: #32445b;
+    --color-text-muted: #5f6f82;
+
+    /* Bordas */
+    --color-border: rgba(30, 55, 84, 0.13);
+    --color-border-primary: rgba(8, 120, 232, 0.35);
+
+    /* Tags */
+    --color-tag-bg: #edf6ff;
+    --color-tag-border: #d3e8ff;
+    --color-tag-text: #24527f;
+
+    /* Botões outline */
+    --color-outline-border: rgba(23, 34, 53, 0.22);
+    --color-outline-hover-bg: rgba(8, 120, 232, 0.07);
+
+    /* Sombras */
+    --shadow-card: 0 10px 28px rgba(25, 52, 82, 0.10);
+    --shadow-card-soft: 0 7px 20px rgba(25, 52, 82, 0.08);
+
+    /* Foto */
+    --profile-glow-1: rgba(8, 120, 232, 0.08);
+    --profile-glow-2: rgba(8, 120, 232, 0.035);
+}
+
+
+/* =========================================================
+   3. BASE
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            var(--color-primary-soft),
+            transparent 28%
+        ),
+        var(--color-bg);
+
+    color: var(--color-text);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.65;
+
+    color-scheme: dark;
+
+    transition:
+        background-color 250ms ease,
+        color 250ms ease;
+}
+
+body.light-theme {
+    color-scheme: light;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+p {
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   4. CABEÇALHO / NAVBAR
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--color-header-bg);
+    border-bottom: 1px solid var(--color-border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        background-color 250ms ease,
+        border-color 250ms ease;
+}
+
+.navbar {
+    min-height: 72px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--color-header-text);
+    font-weight: 700;
+}
+
+.brand:hover {
+    color: var(--color-header-text);
+}
+
+.brand-mark {
+    color: var(--color-primary);
+
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.08em;
+}
+
+.navbar-nav {
+    gap: 0.15rem;
+}
+
+.nav-link {
+    position: relative;
+
+    color: var(--color-header-text) !important;
+
+    font-size: 0.92rem;
+
+    opacity: 0.84;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--color-header-text) !important;
+    opacity: 1;
+}
+
+.nav-link::after {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0;
+    left: 0.5rem;
+
+    height: 2px;
+
+    background: var(--color-primary);
+
+    content: "";
+
+    opacity: 0;
+    transform: scaleX(0);
+
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.nav-cv,
+.nav-theme {
+    display: flex;
+    align-items: center;
+}
+
+.nav-cv {
+    margin-left: 0.4rem;
+}
+
+.btn-cv {
+    color: var(--color-header-text);
+
+    background: transparent;
+    border-color: var(--color-primary);
+}
+
+.btn-cv:hover {
+    color: #ffffff;
+
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Bootstrap navbar-dark cria um ícone branco.
+   No tema claro, invertemos para preto. */
+body.light-theme .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-toggler {
+    border-color: var(--color-border-primary);
+}
+
+
+/* =========================================================
+   5. BOTÃO DE TEMA
+   ========================================================= */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 0 0.25rem;
+
+    color: var(--color-header-text);
+    background: transparent;
+
+    border: 1px solid var(--color-border-primary);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.theme-toggle:hover {
+    color: #ffffff;
+
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+
+    transform: translateY(-1px);
+}
+
+.theme-toggle i {
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   6. HERO
+   ========================================================= */
+
+.hero-section {
+    display: flex;
+
+    min-height: calc(100vh - 72px);
+
+    align-items: center;
+
+    padding: 6rem 0 5rem;
+}
+
+.profile-frame {
+    position: relative;
+
+    display: inline-flex;
+
+    padding: 7px;
+
+    border: 1px solid var(--color-border-primary);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 10px var(--profile-glow-1),
+        0 0 0 28px var(--profile-glow-2);
+}
+
+.profile-photo {
+    display: block;
+
+    width: 330px;
+    height: 330px;
+
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+
+    object-fit: cover;
+
+        /* Ajusta a posição da foto dentro do círculo */
+    object-position: 50% 35%;
+}
+
+.eyebrow {
+    margin-bottom: 0.7rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    margin-bottom: 1rem;
+
+    color: var(--color-text);
+
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.02;
+}
+
+.hero-title span {
+    color: var(--color-primary);
+}
+
+.hero-lead {
+    max-width: 800px;
+
+    margin-bottom: 1rem;
+
+    color: var(--color-text);
+
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.hero-description {
+    max-width: 760px;
+}
+
+.hero-stack {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    margin-top: 1.75rem;
+}
+
+.btn-primary-custom,
+.btn-outline-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    padding: 0.72rem 1.1rem;
+
+    border-radius: 8px;
+}
+
+.btn-primary-custom {
+    color: #ffffff;
+
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-primary-custom:hover {
+    color: #ffffff;
+
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-outline-custom {
+    color: var(--color-text);
+
+    background: transparent;
+    border: 1px solid var(--color-outline-border);
+}
+
+.btn-outline-custom:hover {
+    color: var(--color-primary);
+
+    background: var(--color-outline-hover-bg);
+    border-color: var(--color-primary);
+}
+
+
+/* =========================================================
+   7. SEÇÕES
+   ========================================================= */
+
+.content-section {
+    padding: 4.75rem 0;
+
+    border-top: 1px solid var(--color-border);
+
+    scroll-margin-top: 82px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-bottom: 2rem;
+
+    color: var(--color-text);
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.section-title i {
+    color: var(--color-primary);
+    font-size: 1.05rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.section-header .section-title {
+    margin-bottom: 0;
+}
+
+.section-link {
+    flex-shrink: 0;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   8. CARD RESUMO
+   ========================================================= */
+
+.summary-card {
+    padding: 1.5rem;
+
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        background-color 250ms ease,
+        border-color 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.summary-item {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+}
+
+.summary-item > i {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+}
+
+.summary-item h3 {
+    margin-bottom: 0.2rem;
+
+    color: var(--color-text);
+
+    font-size: 0.95rem;
+}
+
+.summary-item p {
+    margin: 0;
+
+    font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   9. EXPERIÊNCIA
+   ========================================================= */
+
+.experience-card {
+    margin-bottom: 1rem;
+    padding: 1.75rem;
+
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-card-soft);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background-color 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.experience-card:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-border-primary);
+
+    transform: translateY(-2px);
+}
+
+.experience-period {
+    margin-bottom: 0.2rem;
+
+    color: var(--color-primary);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.experience-card h3 {
+    margin-bottom: 0.15rem;
+
+    color: var(--color-text);
+
+    font-size: 1.35rem;
+}
+
+.experience-company {
+    margin-bottom: 1rem;
+
+    color: var(--color-text-secondary);
+
+    font-weight: 600;
+}
+
+.experience-card ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+
+    color: var(--color-text-muted);
+}
+
+.experience-card li + li {
+    margin-top: 0.55rem;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.tech-list span {
+    padding: 0.45rem 0.7rem;
+
+    color: var(--color-tag-text);
+    background: var(--color-tag-bg);
+
+    border: 1px solid var(--color-tag-border);
+    border-radius: 7px;
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   10. CARDS GENÉRICOS
+   ========================================================= */
+
+.info-card,
+.project-card {
+    height: 100%;
+
+    padding: 1.5rem;
+
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-card-soft);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background-color 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.info-card:hover,
+.project-card:hover {
+    background: var(--color-card-hover);
+    border-color: var(--color-border-primary);
+
+    transform: translateY(-3px);
+}
+
+.info-card > i,
+.project-card > i {
+    color: var(--color-primary);
+    font-size: 2rem;
+}
+
+.info-card h3,
+.project-card h3 {
+    margin-top: 0.9rem;
+    margin-bottom: 0.65rem;
+
+    color: var(--color-text);
+
+    font-size: 1.05rem;
+}
+
+.info-card p,
+.project-card p {
+    margin-bottom: 0;
+}
+
+.info-card strong {
+    color: var(--color-primary);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card span {
+    margin-top: auto;
+    padding-top: 1.1rem;
+
+    color: var(--color-text-secondary);
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   11. CONTATO
+   ========================================================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    min-width: 0;
+
+    padding: 1rem;
+
+    color: var(--color-text-muted);
+    background: var(--color-contact);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    box-shadow: var(--shadow-card-soft);
+
+    transition:
+        color var(--transition),
+        background-color 250ms ease,
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.contact-item:hover {
+    color: var(--color-text);
+
+    border-color: var(--color-border-primary);
+
+    transform: translateY(-2px);
+}
+
+.contact-item i {
+    flex-shrink: 0;
+
+    color: var(--color-primary);
+
+    font-size: 1.25rem;
+}
+
+.contact-item span {
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   12. RODAPÉ
+   ========================================================= */
+
+.site-footer {
+    padding: 1.5rem 0;
+
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-content p {
+    margin: 0;
+
+    font-size: 0.86rem;
+}
+
+
+/* =========================================================
+   13. RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+    .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991.98px) {
+    .nav-cv,
+    .nav-theme {
+        margin-top: 0.75rem;
+        margin-left: 0;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+    .hero-section {
+        min-height: auto;
+        padding: 4.5rem 0;
+    }
+
+    .profile-frame {
+        margin-bottom: 1rem;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .content-section {
+        padding: 3.75rem 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 2.45rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-photo {
+        width: 260px;
+    }
+
+    .experience-card,
+    .info-card,
+    .project-card,
+    .summary-card {
+        padding: 1.25rem;
+    }
+}
