@@ -374,7 +374,7 @@ body.light-theme .navbar-toggler-icon {
 
     object-fit: cover;
 
-        /* Ajusta a posição da foto dentro do círculo */
+    /* Ajusta a posição da foto dentro do círculo */
     object-position: 50% 35%;
 }
 
@@ -862,6 +862,7 @@ body.light-theme .navbar-toggler-icon {
 
     .profile-photo {
         width: 260px;
+        height: 260px;
     }
 
     .experience-card,
